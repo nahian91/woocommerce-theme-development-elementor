@@ -46,8 +46,20 @@ final class Ekomart_Addon {
 
 	public function register_widgets( $widgets_manager ) {
 		require_once EKA_PLUGIN_DIR . 'widgets/breadcumb-widget.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/about-brief.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/section-title.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/team.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/why-choose.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/testimonial.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/contact-info.php';
 
 		$widgets_manager->register( new \Ekomart_Breadcumb() );
+		$widgets_manager->register( new \Ekomart_About_Brief() );
+		$widgets_manager->register( new \Ekomart_Section_Title() );
+		$widgets_manager->register( new \Ekomart_Team() );
+		$widgets_manager->register( new \Ekomart_Why_Choose() );
+		$widgets_manager->register( new \Ekomart_Testimonial() );
+		$widgets_manager->register( new \Ekomart_Contact_Info() );
 	}
 }
 
