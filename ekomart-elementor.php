@@ -52,6 +52,12 @@ final class Ekomart_Addon {
 		require_once EKA_PLUGIN_DIR . 'widgets/why-choose.php';
 		require_once EKA_PLUGIN_DIR . 'widgets/testimonial.php';
 		require_once EKA_PLUGIN_DIR . 'widgets/contact-info.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/banner.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/categories-slider.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/discount.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/product-list.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/blog.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/product-tab.php';
 
 		$widgets_manager->register( new \Ekomart_Breadcumb() );
 		$widgets_manager->register( new \Ekomart_About_Brief() );
@@ -60,6 +66,12 @@ final class Ekomart_Addon {
 		$widgets_manager->register( new \Ekomart_Why_Choose() );
 		$widgets_manager->register( new \Ekomart_Testimonial() );
 		$widgets_manager->register( new \Ekomart_Contact_Info() );
+		$widgets_manager->register( new \Ekomart_Banner() );
+		$widgets_manager->register( new \Ekomart_Categories() );
+		$widgets_manager->register( new \Ekomart_Discount() );
+		$widgets_manager->register( new \Ekomart_Product_List() );
+		$widgets_manager->register( new \Ekomart_Blog() );
+		$widgets_manager->register( new \Ekomart_Product_Tab() );
 	}
 }
 
