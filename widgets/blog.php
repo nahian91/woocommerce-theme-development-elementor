@@ -41,6 +41,31 @@ class Ekomart_Blog extends \Elementor\Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'ewa_post_count',
+			[
+				'label' => esc_html__( 'Post Count', 'ekomart-elementor' ),
+				'type' => \Elementor\Controls_Manager::NUMBER,
+				'default' => '3',
+			]
+		);
+
+		$this->add_control(
+			'ewa_post_btn_text',
+			[
+				'label' => esc_html__( 'Button Text', 'ekomart-elementor' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+			]
+		);
+
+		$this->add_control(
+			'ewa_post_btn_url',
+			[
+				'label' => esc_html__( 'Button URL', 'ekomart-elementor' ),
+				'type' => \Elementor\Controls_Manager::URL,
+			]
+		);
+
 		$this->end_controls_section();
 
 		// Content Tab End
@@ -130,16 +155,17 @@ class Ekomart_Blog extends \Elementor\Widget_Base {
 
 
 	protected function render(): void {
-		// $settings = $this->get_settings_for_display();
-		// $eka_blog_heading = $settings['eka_blog_heading'];
-		// $eka_blog_desc = $settings['eka_blog_desc'];
+		$settings = $this->get_settings_for_display();
+		$ewa_post_count = $settings['ewa_post_count'];
+		$ewa_post_btn_text = $settings['ewa_post_btn_text'];
+		$ewa_post_btn_url = $settings['ewa_post_btn_url'];
 		
 		?>
 			<div class="row">
 				<?php 
 					$args = array(
                         'post_type'      => 'post',
-                        'posts_per_page' => 3,
+                        'posts_per_page' => $ewa_post_count,
                     );
 
 					if ( ! empty( $settings['ewa_post_category'] ) ) {
@@ -196,6 +222,21 @@ class Ekomart_Blog extends \Elementor\Widget_Base {
 						}
 					}
 				?>
+			</div>
+			<div class="row mt-5">
+				<div class="col-md-12 text-center">
+					<a href="<?php echo $ewa_post_btn_url['url']; ?>" class="main-btn btn-primary radious-sm with-icon">
+						<div class="btn-text">
+							<?php echo $ewa_post_btn_text; ?>
+						</div>
+						<div class="arrow-icon">
+							<i class="fa-solid fa-circle-plus"></i>
+						</div>
+						<div class="arrow-icon">
+							<i class="fa-solid fa-circle-plus"></i>
+						</div>
+					</a>
+				</div>
 			</div>
 		<?php 
               

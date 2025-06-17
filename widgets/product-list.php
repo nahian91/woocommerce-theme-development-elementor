@@ -214,11 +214,22 @@ class Ekomart_Product_List extends \Elementor\Widget_Base {
 								<div class="body-content">
 									<div class="top">
 										<div class="stars-area">
-											<i class="fa-solid fa-star"></i>
-											<i class="fa-solid fa-star"></i>
-											<i class="fa-solid fa-star"></i>
-											<i class="fa-solid fa-star"></i>
-											<i class="fa-solid fa-star"></i>
+											<?php 
+												$product = wc_get_product( get_the_ID() );
+												$average = floatval( $product->get_average_rating() );
+												for ( $i = 1; $i <= 5; $i++ ) {
+													if ( $average >= $i ) {
+														// Full star
+														echo '<i class="fa-solid fa-star"></i>';
+													} elseif ( $average >= ( $i - 0.5 ) ) {
+														// Half star
+														echo '<i class="fa-solid fa-star-half-stroke"></i>';
+													} else {
+														// Empty star
+														echo '<i class="fa-regular fa-star"></i>';
+													}
+												}
+											?>
 										</div>
 										<a href="<?php the_permalink();?>">
 											<h4 class="title"><?php the_title();?></h4>

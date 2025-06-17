@@ -58,6 +58,7 @@ final class Ekomart_Addon {
 		require_once EKA_PLUGIN_DIR . 'widgets/product-list.php';
 		require_once EKA_PLUGIN_DIR . 'widgets/blog.php';
 		require_once EKA_PLUGIN_DIR . 'widgets/product-tab.php';
+		require_once EKA_PLUGIN_DIR . 'widgets/product-selected.php';
 
 		$widgets_manager->register( new \Ekomart_Breadcumb() );
 		$widgets_manager->register( new \Ekomart_About_Brief() );
@@ -72,6 +73,7 @@ final class Ekomart_Addon {
 		$widgets_manager->register( new \Ekomart_Product_List() );
 		$widgets_manager->register( new \Ekomart_Blog() );
 		$widgets_manager->register( new \Ekomart_Product_Tab() );
+		$widgets_manager->register( new \Ekomart_Product_Selected() );
 	}
 }
 
